@@ -1,15 +1,27 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        testCars();
+    }
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+    private static void testCars() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("get car count");
+
+        int carCount = Integer.parseInt(sc.nextLine());
+        ArrayList<Car> carList = new ArrayList<Car>(carCount);
+
+        for (int i = 0; i < carCount; i++) {
+            System.out.println("get car data");
+            String[] carData = sc.nextLine().split(" ");
+
+            carList.add(new Car(carData[0], carData[1], Integer.parseInt(carData[2])));
         }
+
+        carList.forEach(Car::getInfo);
     }
 }
