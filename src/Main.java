@@ -1,3 +1,6 @@
+import Vehicle.Engine;
+import Vehicle.Vehicle;
+
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.Scanner;
@@ -7,7 +10,24 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 //        testCars();
-        testBankAccount();
+//        testBankAccount();
+        testVehicle();
+    }
+
+    private static void testVehicle() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("awaiting command");
+        String[] command = sc.nextLine().split(" - ");
+        String[] comandParams = command[1].split(": ");
+
+        if (command[0].equals("Engine")) {
+            Engine eng = new Engine(Integer.parseInt(comandParams[1]));
+            Vehicle car = new Vehicle("unknown", "unknown", eng, 200);
+            car.drive(100);
+
+            Vehicle.getInfo(car);
+        }
+
     }
 
     private static void testBankAccount() {
