@@ -16,7 +16,31 @@ public class Main {
 //        testBankAccount();
 //        testVehicle();
 //        testStorage();
-        testRandomizer();
+//        testRandomizer();
+//        testStudents();
+
+
+    }
+
+    private static void testStudents() {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Student> students = new ArrayList<Student>();
+        System.out.println("get comand");
+        String comand = sc.nextLine();
+
+        while (!comand.equals("end")) {
+            String[] studentData = comand.split(" ");
+            students.add(new Student(studentData[0], studentData[1], Integer.parseInt(studentData[2]), studentData[3]));
+
+            System.out.println("get comand");
+            comand = sc.nextLine();
+        }
+
+        System.out.println("get comand");
+        String city = sc.nextLine();
+
+        students.stream().filter(student -> student.getCity().equals(city)).forEach(student -> System.out.println(student.getInfo()));
+
 
     }
 
