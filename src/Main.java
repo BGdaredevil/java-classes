@@ -1,3 +1,5 @@
+import Storage.Product;
+import Storage.Storage;
 import Vehicle.Engine;
 import Vehicle.Vehicle;
 
@@ -11,7 +13,24 @@ public class Main {
     public static void main(String[] args) {
 //        testCars();
 //        testBankAccount();
-        testVehicle();
+//        testVehicle();
+        testStorage();
+    }
+
+    private static void testStorage() {
+        Product product1 = new Product( "cucumber", 1.50, 15);
+        Product product2 = new Product( "tomato", 0.90, 25);
+        Product product3 = new Product( "bread", 1.10, 8);
+
+        Storage sklad = new Storage(50);
+
+        sklad.addProduct(product1);
+        sklad.addProduct(product2);
+        sklad.addProduct(product3);
+
+        sklad.getProducts();
+        System.out.println(sklad.getCapacity());
+        System.out.println(sklad.getTotalCost());
     }
 
     private static void testVehicle() {
