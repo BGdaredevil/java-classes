@@ -5,6 +5,7 @@ import Vehicle.Vehicle;
 
 import java.util.ArrayList;
 import java.util.Optional;
+import java.util.Random;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -14,13 +15,35 @@ public class Main {
 //        testCars();
 //        testBankAccount();
 //        testVehicle();
-        testStorage();
+//        testStorage();
+        testRandomizer();
+
+    }
+
+    private static void testRandomizer() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("get line");
+        String[] input = sc.nextLine().split(" ");
+
+        Random randNum = new Random();
+
+        for (int i = 0; i < input.length; i++) {
+            String temp = input[i];
+            int randIndex = randNum.nextInt(input.length);
+            input[i] = input[randIndex];
+            input[randIndex] = temp;
+        }
+
+        for (String row : input) {
+            System.out.println(row);
+        }
+
     }
 
     private static void testStorage() {
-        Product product1 = new Product( "cucumber", 1.50, 15);
-        Product product2 = new Product( "tomato", 0.90, 25);
-        Product product3 = new Product( "bread", 1.10, 8);
+        Product product1 = new Product("cucumber", 1.50, 15);
+        Product product2 = new Product("tomato", 0.90, 25);
+        Product product3 = new Product("bread", 1.10, 8);
 
         Storage sklad = new Storage(50);
 
